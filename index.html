@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ApexDigital | Professional Business Web Solutions</title>
+    <title>ApexDigital | Enterprise Business & Web Solutions</title>
     <style>
         :root {
             --primary: #ff6b00;
@@ -12,6 +12,7 @@
             --card-bg: #131c2e;
             --text-light: #ffffff;
             --text-gray: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.08);
         }
         * {
             margin: 0;
@@ -36,7 +37,8 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
         }
         .logo {
             font-size: 24px;
@@ -58,6 +60,7 @@
             color: var(--text-gray);
             text-decoration: none;
             transition: 0.3s;
+            font-size: 15px;
         }
         nav ul li a:hover {
             color: var(--primary);
@@ -81,7 +84,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 80px 5%;
+            padding: 90px 5%;
             gap: 40px;
             flex-wrap: wrap;
         }
@@ -135,26 +138,31 @@
             border-radius: 12px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            margin-bottom: 50px;
+            font-size: 16px;
+        }
         .services {
             padding: 80px 5%;
-            text-align: center;
-        }
-        .services h2 {
-            font-size: 36px;
-            margin-bottom: 40px;
         }
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
         }
         .service-card {
             background: var(--card-bg);
-            padding: 30px 20px;
+            padding: 35px 25px;
             border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
             transition: 0.3s;
-            text-align: left;
         }
         .service-card:hover {
             transform: translateY(-5px);
@@ -163,48 +171,149 @@
         .service-card h3 {
             margin-top: 15px;
             font-size: 20px;
+            margin-bottom: 10px;
         }
         .service-card p {
             color: var(--text-gray);
             font-size: 14px;
-            margin-top: 10px;
         }
         .stats {
             display: flex;
             justify-content: space-around;
             background: var(--card-bg);
             margin: 40px 5%;
-            padding: 30px;
+            padding: 40px;
             border-radius: 12px;
             flex-wrap: wrap;
             gap: 20px;
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
         }
         .stat-item h3 {
-            font-size: 32px;
+            font-size: 36px;
             color: var(--primary);
+            margin-bottom: 5px;
         }
         .stat-item p {
             color: var(--text-gray);
             font-size: 14px;
         }
+        /* Pricing & Calculator Section */
+        .pricing {
+            padding: 80px 5%;
+            background: rgba(19, 28, 46, 0.3);
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .price-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            transition: 0.3s;
+        }
+        .price-card.popular {
+            border-color: var(--primary);
+            transform: scale(1.03);
+        }
+        .price-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        .price-card .price {
+            font-size: 42px;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        .price-card ul {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+            color: var(--text-gray);
+        }
+        .price-card ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 14px;
+        }
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 5%;
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .testimonial-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        .testimonial-card p {
+            color: var(--text-gray);
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+        .client-info h4 {
+            font-size: 16px;
+        }
+        .client-info span {
+            font-size: 13px;
+            color: var(--primary);
+        }
+        /* FAQ Section */
+        .faq {
+            padding: 80px 5%;
+            background: rgba(19, 28, 46, 0.3);
+        }
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: var(--card-bg);
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+        .faq-question {
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+        .faq-answer {
+            padding: 0 20px 20px 20px;
+            color: var(--text-gray);
+            font-size: 15px;
+            display: none;
+        }
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        /* Contact Section */
         .contact-section {
             padding: 80px 5%;
-            background: rgba(19, 28, 46, 0.5);
         }
         .contact-container {
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto;
             background: var(--card-bg);
             padding: 40px;
             border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .contact-container h2 {
-            text-align: center;
-            margin-bottom: 25px;
-            font-size: 32px;
+            border: 1px solid var(--border-color);
         }
         .form-group {
             margin-bottom: 20px;
@@ -215,16 +324,16 @@
             color: var(--text-gray);
             font-size: 14px;
         }
-        .form-group input, .form-group textarea {
+        .form-group input, .form-group textarea, .form-group select {
             width: 100%;
             padding: 12px;
             background: var(--dark-bg);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--border-color);
             border-radius: 6px;
             color: white;
             font-size: 16px;
         }
-        .form-group input:focus, .form-group textarea:focus {
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
             outline: none;
             border-color: var(--primary);
         }
@@ -241,7 +350,7 @@
             background: #070a12;
             color: var(--text-gray);
             font-size: 14px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid var(--border-color);
         }
         @media(max-width: 768px) {
             nav ul { display: none; }
@@ -257,7 +366,9 @@
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -268,7 +379,7 @@
         <div class="hero-content">
             <h4>Professional Business Website Design</h4>
             <h1>Modern. Responsive. Results Driven.</h1>
-            <p>We build high-converting digital experiences that drive results, scale your brand, and elevate your enterprise across global markets.</p>
+            <p>We build high-converting digital experiences that drive results, scale your brand, and elevate your enterprise across USA, UK, and global markets.</p>
             <div class="hero-buttons">
                 <a href="#contact" class="btn">Get Free Quote</a>
                 <a href="#services" class="btn-outline">Our Services</a>
@@ -280,23 +391,24 @@
     </section>
 
     <section class="services" id="services">
-        <h2>Complete Web Solutions</h2>
+        <h2 class="section-title">Complete Web Solutions</h2>
+        <p class="section-subtitle">Everything your business needs to establish a powerful online footprint.</p>
         <div class="services-grid">
             <div class="service-card">
                 <h3>Web Design</h3>
-                <p>Modern UI/UX designs tailored for high user engagement and global appeal.</p>
+                <p>Modern UI/UX layouts tailored for high user engagement and global audience appeal.</p>
             </div>
             <div class="service-card">
                 <h3>Development</h3>
-                <p>Fast, secure, and robust web development using cutting-edge stacks.</p>
+                <p>Fast, secure, and robust web applications built using cutting-edge tech stacks.</p>
             </div>
             <div class="service-card">
-                <h3>Branding</h3>
-                <p>Unique logo and corporate identity design to stand out in competitive markets.</p>
+                <h3>Branding & Identity</h3>
+                <p>Unique logos and corporate branding kits to stand out in competitive markets.</p>
             </div>
             <div class="service-card">
                 <h3>SEO & Analytics</h3>
-                <p>Rank higher on search engines and grow your organic traffic exponentially.</p>
+                <p>Rank higher on search engines (Google & AI search) and grow organic traffic.</p>
             </div>
         </div>
     </section>
@@ -312,17 +424,100 @@
         </div>
         <div class="stat-item">
             <h3>3+</h3>
-            <p>Years of Experience</p>
+            <p>Years Experience</p>
         </div>
         <div class="stat-item">
             <h3>24/7</h3>
-            <p>Support Available</p>
+            <p>Dedicated Support</p>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <h2 class="section-title">Transparent Pricing Plans</h2>
+        <p class="section-subtitle">Choose the perfect package for your business growth.</p>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Starter Business</h3>
+                <div class="price">$499</div>
+                <ul>
+                    <li>5 Page Responsive Website</li>
+                    <li>Basic SEO Setup</li>
+                    <li>Mobile Friendly Design</li>
+                    <li>1 Week Delivery</li>
+                    <li>3 Months Support</li>
+                </ul>
+                <a href="#contact" class="btn-outline" style="width: 100%;">Select Plan</a>
+            </div>
+            <div class="price-card popular">
+                <h3>Growth Enterprise</h3>
+                <div class="price">$999</div>
+                <ul>
+                    <li>10+ Page Advanced Website</li>
+                    <li>Complete SEO & GEO Optimization</li>
+                    <li>Custom UI/UX Animations</li>
+                    <li>Fast GitHub/Vercel Deployment</li>
+                    <li>6 Months Priority Support</li>
+                </ul>
+                <a href="#contact" class="btn" style="width: 100%;">Select Plan</a>
+            </div>
+            <div class="price-card">
+                <h3>E-Commerce Pro</h3>
+                <div class="price">$1,499</div>
+                <ul>
+                    <li>Full Online Store Setup</li>
+                    <li>Payment Gateway Integration</li>
+                    <li>Inventory Management System</li>
+                    <li>Advanced Security & Speed</li>
+                    <li>1 Year Dedicated Support</li>
+                </ul>
+                <a href="#contact" class="btn-outline" style="width: 100%;">Select Plan</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <h2 class="section-title">What Our Clients Say</h2>
+        <p class="section-subtitle">Trusted by startup founders and digital entrepreneurs worldwide.</p>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p>"ApexDigital transformed our online presence completely. Our conversion rate increased by 45% within just two weeks of launching the new site!"</p>
+                <div class="client-info">
+                    <h4>David Miller</h4>
+                    <span>CEO, TechFlow USA</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p>"The clean code structure and fast loading speed are incredible. Highly professional team that understands international web standards."</p>
+                <div class="client-info">
+                    <h4>Sarah Jenkins</h4>
+                    <span>Founder, CreativeStudio UK</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Got questions? We have clear answers.</p>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">How long does it take to build a business website? <span>+</span></div>
+                <div class="faq-answer">Typically, standard business websites take between 5 to 10 days depending on the scope and specific requirements of your project.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">Are your websites optimized for US and UK audiences? <span>+</span></div>
+                <div class="faq-answer">Yes! All our templates and custom builds are optimized for international standards, focusing on high speed, clean typography, and modern aesthetics favored in the US and UK.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">Do you provide maintenance after launch? <span>+</span></div>
+                <div class="faq-answer">Yes, we provide ongoing support and maintenance packages to ensure your website remains secure, updated, and performing at its best.</div>
+            </div>
         </div>
     </section>
 
     <section class="contact-section" id="contact">
         <div class="contact-container">
-            <h2>Get In Touch</h2>
+            <h2 style="text-align: center; margin-bottom: 25px; font-size: 32px;">Start Your Project</h2>
             <form id="contactForm" onsubmit="handleFormSubmit(event)">
                 <div class="form-group">
                     <label for="name">Your Name</label>
@@ -333,20 +528,34 @@
                     <input type="email" id="email" required placeholder="john@example.com">
                 </div>
                 <div class="form-group">
+                    <label for="service">Select Package</label>
+                    <select id="service">
+                        <option>Starter Business ($499)</option>
+                        <option>Growth Enterprise ($999)</option>
+                        <option>E-Commerce Pro ($1,499)</option>
+                        <option>Custom Web Solution</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="message">Project Details</label>
-                    <textarea id="message" rows="4" required placeholder="Tell us about your project..."></textarea>
+                    <textarea id="message" rows="4" required placeholder="Tell us about your business goals..."></textarea>
                 </div>
                 <button type="submit" class="btn" style="width: 100%;">Send Message</button>
-                <div class="success-msg" id="successMsg">Thank you! Your message has been sent successfully.</div>
+                <div class="success-msg" id="successMsg">Thank you! Your message has been received successfully.</div>
             </form>
         </div>
     </section>
 
-    <footer id="about">
-        <p>&copy; 2026 ApexDigital. All rights reserved. Designed for Global & US/UK Markets.</p>
+    <footer>
+        <p>&copy; 2026 ApexDigital. All rights reserved. Designed for Global, US & UK Markets.</p>
     </footer>
 
     <script>
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            item.classList.toggle('active');
+        }
+
         function handleFormSubmit(event) {
             event.preventDefault();
             document.getElementById('successMsg').style.display = 'block';
