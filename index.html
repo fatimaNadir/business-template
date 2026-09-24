@@ -19,6 +19,9 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             background-color: var(--dark-bg);
             color: var(--text-light);
@@ -69,6 +72,7 @@
             transition: 0.3s;
             border: none;
             cursor: pointer;
+            display: inline-block;
         }
         .btn:hover {
             background-color: var(--primary-dark);
@@ -115,6 +119,11 @@
             border-radius: 6px;
             text-decoration: none;
             font-weight: 600;
+            transition: 0.3s;
+        }
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
         }
         .hero-image {
             flex: 1;
@@ -127,7 +136,7 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
         .services {
-            padding: 60px 5%;
+            padding: 80px 5%;
             text-align: center;
         }
         .services h2 {
@@ -145,6 +154,7 @@
             border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: 0.3s;
+            text-align: left;
         }
         .service-card:hover {
             transform: translateY(-5px);
@@ -179,32 +189,51 @@
             color: var(--text-gray);
             font-size: 14px;
         }
-        .cta-section {
-            background: linear-gradient(135deg, #ff6b00, #ff8c37);
-            margin: 60px 5%;
-            padding: 50px;
-            border-radius: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
+        .contact-section {
+            padding: 80px 5%;
+            background: rgba(19, 28, 46, 0.5);
         }
-        .cta-section h2 {
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .contact-container h2 {
+            text-align: center;
+            margin-bottom: 25px;
             font-size: 32px;
-            color: white;
         }
-        .cta-section p {
-            color: rgba(255,255,255,0.9);
-            margin-top: 5px;
+        .form-group {
+            margin-bottom: 20px;
         }
-        .btn-white {
-            background: white;
-            color: var(--primary);
-            padding: 12px 25px;
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: var(--dark-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
+            color: white;
+            font-size: 16px;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        .success-msg {
+            display: none;
+            color: #2ecc71;
+            text-align: center;
+            margin-top: 15px;
+            font-weight: 600;
         }
         footer {
             text-align: center;
@@ -291,17 +320,41 @@
         </div>
     </section>
 
-    <section class="cta-section">
-        <div>
-            <h2>Ready to Grow Your Business?</h2>
-            <p>Let's build something amazing together for your international audience.</p>
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <h2>Get In Touch</h2>
+            <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="message">Project Details</label>
+                    <textarea id="message" rows="4" required placeholder="Tell us about your project..."></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                <div class="success-msg" id="successMsg">Thank you! Your message has been sent successfully.</div>
+            </form>
         </div>
-        <a href="#contact" class="btn-white">Start a Project</a>
     </section>
 
-    <footer id="contact">
+    <footer id="about">
         <p>&copy; 2026 ApexDigital. All rights reserved. Designed for Global & US/UK Markets.</p>
     </footer>
 
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            document.getElementById('successMsg').style.display = 'block';
+            document.getElementById('contactForm').reset();
+            setTimeout(() => {
+                document.getElementById('successMsg').style.display = 'none';
+            }, 5000);
+        }
+    </script>
 </body>
 </html>
