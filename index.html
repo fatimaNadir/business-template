@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApexDigital | Professional Business Web Solutions</title>
+    <style>
+        :root {
+            --primary: #ff6b00;
+            --primary-dark: #e05e00;
+            --dark-bg: #0b0f19;
+            --card-bg: #131c2e;
+            --text-light: #ffffff;
+            --text-gray: #94a3b8;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(11, 15, 25, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo span {
+            color: var(--primary);
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        nav ul li a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 22px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: var(--primary-dark);
+        }
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 5%;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .hero-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        .hero-content h4 {
+            color: var(--primary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .hero-content p {
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 22px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        .services {
+            padding: 60px 5%;
+            text-align: center;
+        }
+        .services h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+        .service-card {
+            background: var(--card-bg);
+            padding: 30px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+        .service-card h3 {
+            margin-top: 15px;
+            font-size: 20px;
+        }
+        .service-card p {
+            color: var(--text-gray);
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            background: var(--card-bg);
+            margin: 40px 5%;
+            padding: 30px;
+            border-radius: 12px;
+            flex-wrap: wrap;
+            gap: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .stat-item h3 {
+            font-size: 32px;
+            color: var(--primary);
+        }
+        .stat-item p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+        .cta-section {
+            background: linear-gradient(135deg, #ff6b00, #ff8c37);
+            margin: 60px 5%;
+            padding: 50px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .cta-section h2 {
+            font-size: 32px;
+            color: white;
+        }
+        .cta-section p {
+            color: rgba(255,255,255,0.9);
+            margin-top: 5px;
+        }
+        .btn-white {
+            background: white;
+            color: var(--primary);
+            padding: 12px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #070a12;
+            color: var(--text-gray);
+            font-size: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        @media(max-width: 768px) {
+            nav ul { display: none; }
+            .hero-content h1 { font-size: 36px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Apex<span>Digital</span></div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="#contact" class="btn">Get Quote</a>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h4>Professional Business Website Design</h4>
+            <h1>Modern. Responsive. Results Driven.</h1>
+            <p>We build high-converting digital experiences that drive results, scale your brand, and elevate your enterprise across global markets.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn">Get Free Quote</a>
+                <a href="#services" class="btn-outline">Our Services</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Business Website Design Mockup">
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <h2>Complete Web Solutions</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Web Design</h3>
+                <p>Modern UI/UX designs tailored for high user engagement and global appeal.</p>
+            </div>
+            <div class="service-card">
+                <h3>Development</h3>
+                <p>Fast, secure, and robust web development using cutting-edge stacks.</p>
+            </div>
+            <div class="service-card">
+                <h3>Branding</h3>
+                <p>Unique logo and corporate identity design to stand out in competitive markets.</p>
+            </div>
+            <div class="service-card">
+                <h3>SEO & Analytics</h3>
+                <p>Rank higher on search engines and grow your organic traffic exponentially.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stat-item">
+            <h3>35+</h3>
+            <p>Projects Completed</p>
+        </div>
+        <div class="stat-item">
+            <h3>30+</h3>
+            <p>Happy Clients</p>
+        </div>
+        <div class="stat-item">
+            <h3>3+</h3>
+            <p>Years of Experience</p>
+        </div>
+        <div class="stat-item">
+            <h3>24/7</h3>
+            <p>Support Available</p>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div>
+            <h2>Ready to Grow Your Business?</h2>
+            <p>Let's build something amazing together for your international audience.</p>
+        </div>
+        <a href="#contact" class="btn-white">Start a Project</a>
+    </section>
+
+    <footer id="contact">
+        <p>&copy; 2026 ApexDigital. All rights reserved. Designed for Global & US/UK Markets.</p>
+    </footer>
+
+</body>
+</html>
